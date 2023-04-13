@@ -1,2 +1,13 @@
+# IDE config
 .idea
+**/.idea
+.vscode
+**/vscode
+
+# Secrets and config
+golang/config.yaml
+**/.env
 .env
+
+# Development files
+golang/dev.go
