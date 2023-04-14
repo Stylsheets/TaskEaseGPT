@@ -5,9 +5,11 @@ go 1.20
 require (
 	github.com/sashabaranov/go-openai v1.7.0
 	github.com/spf13/viper v1.15.0
+	github.com/tiktoken-go/tokenizer v0.1.0
 )
 
 require (
+	github.com/dlclark/regexp2 v1.9.0 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
