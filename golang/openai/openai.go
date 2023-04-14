@@ -1,16 +1,13 @@
 package openai
 
 import (
+	"TaskEaseGPT/config"
 	"context"
 	"fmt"
-	"os"
+	"github.com/sashabaranov/go-openai"
 )
 
-import (
-	openai "github.com/sashabaranov/go-openai"
-)
-
-var client = openai.NewClient(os.Getenv("OPENAI_API_KEY"))
+var client = openai.NewClient(config.GetOpenAICredentials().ApiKey)
 
 type RequestChatOptions struct {
 	Messages    []openai.ChatCompletionMessage
@@ -20,6 +17,9 @@ type RequestChatOptions struct {
 }
 
 func RequestChat(options RequestChatOptions) (string, error) {
+	if options.MaxTokens == 0 {
+		options.MaxTokens, _ = CalculateTokens(options.Messages[len(options.Messages)-1].Content)
+	}
 	resp, err := client.CreateChatCompletion(context.Background(), openai.ChatCompletionRequest{
 		Messages:    options.Messages,
 		Model:       options.Model,
