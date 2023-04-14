@@ -32,18 +32,14 @@ func InitDotenv() {
 }
 
 type PineconeCredentials struct {
-	IndexName   string
-	ProjectName string
-	Environment string // aka region
-	ApiKey      string
+	URI    string
+	ApiKey string
 }
 
 func GetPineconeCredentials() PineconeCredentials {
 	return PineconeCredentials{
-		IndexName:   os.Getenv("PINECONE_INDEX_NAME"),
-		ProjectName: os.Getenv("PINECONE_PROJECT_NAME"),
-		Environment: os.Getenv("PINECONE_ENVIRONMENT"),
-		ApiKey:      os.Getenv("PINECONE_API_KEY"),
+		URI:    os.Getenv("PINECONE_URI"),
+		ApiKey: os.Getenv("PINECONE_API_KEY"),
 	}
 }
 

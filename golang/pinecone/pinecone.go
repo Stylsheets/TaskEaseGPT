@@ -16,10 +16,10 @@ type Client struct {
 	ctx    context.Context
 }
 
-func Init(indexName, projectName, pineconeEnv, apiKey string) (*Client, error) {
+func Init(uri string, apiKey string) (*Client, error) {
 	config := &tls.Config{}
 	ctx := metadata.AppendToOutgoingContext(context.Background(), "api-key", apiKey)
-	target := fmt.Sprintf("%s-%s.svc.%s.pinecone.io:443", indexName, projectName, pineconeEnv)
+	target := fmt.Sprintf("%s:443", uri)
 	conn, err := grpc.Dial(
 		target,
 		grpc.WithTransportCredentials(credentials.NewTLS(config)),
