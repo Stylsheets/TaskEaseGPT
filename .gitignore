@@ -11,3 +11,4 @@ golang/config.yaml
 
 # Development files
 golang/dev.go
+golang/dev
