@@ -75,7 +75,7 @@ type DescribeIndexStatsRequest struct {
 type DescribeIndexStatsResponse struct {
 	Namespaces       map[string]struct{ VectorCount int64 } `json:"namespaces"`
 	Dimension        int64                                  `json:"dimension"`
-	IndexFullness    float64                                `json:"index_fullness"`
+	IndexFullness    float32                                `json:"index_fullness"`
 	TotalVectorCount int64                                  `json:"totalVectorCount"`
 }
 
@@ -109,20 +109,20 @@ type QueryRequest struct {
 	Filter          map[string]string `json:"filter,omitempty"`
 	IncludeValues   bool              `json:"includeValues"`
 	IncludeMetadata bool              `json:"includeMetadata"`
-	Vector          []float64         `json:"vector"`
+	Vector          []float32         `json:"vector"`
 	SparseVector    *SparseVector     `json:"sparseVector,omitempty"`
 	ID              string            `json:"id"`
 }
 
 type SparseVector struct {
 	Indices []int64   `json:"indices"`
-	Values  []float64 `json:"values"`
+	Values  []float32 `json:"values"`
 }
 
 type QueryMatch struct {
 	ID           string                 `json:"id"`
-	Score        float64                `json:"score"`
-	Values       []float64              `json:"values,omitempty"`
+	Score        float32                `json:"score"`
+	Values       []float32              `json:"values,omitempty"`
 	SparseValues *SparseVector          `json:"sparseValues,omitempty"`
 	Metadata     map[string]interface{} `json:"metadata,omitempty"`
 }
@@ -196,7 +196,7 @@ type FetchRequest struct {
 
 type FetchVector struct {
 	ID           string                 `json:"id"`
-	Values       []float64              `json:"values,omitempty"`
+	Values       []float32              `json:"values,omitempty"`
 	SparseValues *SparseVector          `json:"sparseValues,omitempty"`
 	Metadata     map[string]interface{} `json:"metadata,omitempty"`
 }
@@ -231,7 +231,7 @@ func (c *Client) Fetch(req *FetchRequest) (*FetchResponse, error) {
 
 type UpdateRequest struct {
 	ID           string            `json:"id"`
-	Values       []float64         `json:"values,omitempty"`
+	Values       []float32         `json:"values,omitempty"`
 	SparseValues *SparseVector     `json:"sparseValues,omitempty"`
 	SetMetadata  map[string]string `json:"setMetadata,omitempty"`
 	Namespace    string            `json:"namespace"`
@@ -270,7 +270,7 @@ type UpsertRequest struct {
 
 type UpsertVector struct {
 	ID           string            `json:"id"`
-	Values       []float64         `json:"values"`
+	Values       []float32         `json:"values"`
 	SparseValues *SparseVector     `json:"sparseValues,omitempty"`
 	Metadata     map[string]string `json:"metadata,omitempty"`
 }
