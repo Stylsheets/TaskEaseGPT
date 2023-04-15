@@ -1,13 +1,20 @@
 package openai
 
 import (
-	"TaskEaseGPT/config"
 	"context"
 	"fmt"
 	"github.com/sashabaranov/go-openai"
 )
 
-var client = openai.NewClient(config.GetOpenAICredentials().ApiKey)
+type Client struct {
+	client *openai.Client
+}
+
+func NewClient(apiKey string) *Client {
+	return &Client{
+		client: openai.NewClient(apiKey),
+	}
+}
 
 type RequestChatOptions struct {
 	Messages    []openai.ChatCompletionMessage
@@ -16,11 +23,11 @@ type RequestChatOptions struct {
 	Temperature float32
 }
 
-func RequestChat(options RequestChatOptions) (string, error) {
+func (c *Client) RequestChat(options RequestChatOptions) (string, error) {
 	if options.MaxTokens == 0 {
 		options.MaxTokens, _ = CalculateTokens(options.Messages[len(options.Messages)-1].Content)
 	}
-	resp, err := client.CreateChatCompletion(context.Background(), openai.ChatCompletionRequest{
+	resp, err := c.client.CreateChatCompletion(context.Background(), openai.ChatCompletionRequest{
 		Messages:    options.Messages,
 		Model:       options.Model,
 		MaxTokens:   options.MaxTokens,
@@ -45,8 +52,8 @@ type RequestEmbeddingOptions struct {
 	Model openai.EmbeddingModel
 }
 
-func RequestEmbedding(options RequestEmbeddingOptions) ([]openai.Embedding, error) {
-	resp, err := client.CreateEmbeddings(context.Background(), openai.EmbeddingRequest{
+func (c *Client) RequestEmbedding(options RequestEmbeddingOptions) ([]openai.Embedding, error) {
+	resp, err := c.client.CreateEmbeddings(context.Background(), openai.EmbeddingRequest{
 		Input: options.Input,
 		Model: options.Model,
 	})
@@ -68,8 +75,8 @@ type RequestCompletionOptions struct {
 	PresencePenalty float32
 }
 
-func RequestCompletion(options RequestCompletionOptions) (string, error) {
-	resp, err := client.CreateCompletion(context.Background(), openai.CompletionRequest{
+func (c *Client) RequestCompletion(options RequestCompletionOptions) (string, error) {
+	resp, err := c.client.CreateCompletion(context.Background(), openai.CompletionRequest{
 		Model:           options.Model,
 		Prompt:          options.Prompt,
 		Suffix:          options.Suffix,
