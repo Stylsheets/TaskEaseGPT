@@ -1,7 +1,9 @@
 package scraper
 
 import (
+	"fmt"
 	"github.com/gocolly/colly"
+	"regexp"
 	"strings"
 )
 
@@ -36,6 +38,14 @@ func Scrape(url string) (Result, error) {
 
 	c.OnHTML("body", func(e *colly.HTMLElement) {
 		result.TextContent = strings.TrimSpace(e.Text)
+
+		// text has parts like \n\n\n... or \t\n\t\n... clean duplicates and make them single \n
+		// Compile the regular expression
+		regex := regexp.MustCompile(`((\n+)|(\t+))`)
+		result.TextContent = regex.ReplaceAllString(result.TextContent, "\n")
+		regex = regexp.MustCompile(`\n+`)
+		result.TextContent = regex.ReplaceAllString(result.TextContent, "\n")
+		fmt.Println(result.TextContent)
 	})
 
 	err := c.Visit(url)
