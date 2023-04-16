@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/go-logr/logr v1.2.4
 	github.com/go-logr/zapr v1.2.3
+	github.com/gocolly/colly v1.2.0
 	github.com/joho/godotenv v1.5.1
 	github.com/rocketlaunchr/google-search v1.1.5
 	github.com/sashabaranov/go-openai v1.7.0
