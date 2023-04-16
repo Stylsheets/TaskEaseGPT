@@ -91,8 +91,7 @@ func (c *Client) RequestCompletion(options RequestCompletionOptions) (string, er
 
 	if resp.Choices[0].FinishReason != "stop" {
 		err = fmt.Errorf("requestCompletion error (FinishReason): %v", resp.Choices[0].FinishReason)
-		return "", err
 	}
 
-	return resp.Choices[0].Text, nil
+	return resp.Choices[0].Text, err
 }
