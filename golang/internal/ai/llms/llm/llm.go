@@ -1,7 +1,7 @@
 package llm
 
 import (
-	"TaskEaseGPT/pkg/llms/openai"
+	"TaskEaseGPT/internal/ai/llms/openai"
 	"fmt"
 	openai2 "github.com/sashabaranov/go-openai"
 )
