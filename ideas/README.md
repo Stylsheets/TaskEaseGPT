@@ -24,3 +24,7 @@ A vector database, such as Pinecone, is employed to store all AI-generated outpu
 ## Multiple Masters with a Coordinator
 
 We can allow multiple master AIs to run while a coordinator will manage them as needed.
+
+## Multiple LLM Support
+
+Support multiple Large Language Models for flexibility or to decrease the cost. Some other open-source LLMs that I found: [ChatGLM-6B](https://github.com/THUDM/ChatGLM-6B/blob/main/README_en.md), [GPT4All Chat](https://github.com/nomic-ai/gpt4all-chat)
