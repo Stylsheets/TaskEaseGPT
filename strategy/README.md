@@ -1,6 +1,7 @@
 # Strategy
 
 ## General Strategy
+This is the general strategy to be extended or modified according to other job types such as programming or other types of jobs.
 
 1. Gather information from the user:
    * Understand the user's request: Analyze user input and identify keywords, topics, and requirements.
