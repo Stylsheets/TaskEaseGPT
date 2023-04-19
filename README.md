@@ -22,7 +22,7 @@ Any contribution is welcomed! If you'd like to contribute, please follow these s
 TaskEaseGPT is available under two different licenses: an open-source license for non-commercial use and a commercial license for those who wish to use the software for profit.
 ### Open-Source License
 
-For non-commercial use, TaskEaseGPT is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0). This license allows you to use, modify, and distribute the software for non-commercial purposes, provided that any modifications or derivative works are also released under the same license. The full text of the AGPL-3.0 can be found in the [LICENSE](./LICENSE) file.
+For non-commercial use, TaskEaseGPT is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0). This license allows you to use, modify, and distribute the software for non-commercial purposes, provided that any modifications or derivative works are also released under the same license. The full text of the AGPL-3.0 can be found in the [LICENSE](./LICENSE.md) file.
 
 ### Commercial License
 
