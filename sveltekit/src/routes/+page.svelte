@@ -110,7 +110,7 @@
 
 <style lang="postcss">
     footer {
-        @apply absolute flex items-center left-[250px] right-0 w-[800px] bottom-2 bg-selection mx-auto rounded-lg pr-8;
+        @apply absolute flex items-center left-0 md:left-[250px] right-0 w-[75%] md:w-[calc(90vw-250px)] max-w-4xl bottom-2 bg-selection mx-auto rounded-lg pr-8;
     }
 
     textarea {

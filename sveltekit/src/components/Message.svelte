@@ -19,7 +19,7 @@
         <span class="font-bold">{message.profile.name}</span>
     </span>
 
-    <span class="prose prose-invert text-left">
+    <span class="ml-12 prose prose-invert text-left">
         {@html snarkdown(message.message)}
     </span>
 </div>
@@ -27,6 +27,6 @@
 <style lang="postcss">
 
     .message {
-        @apply flex items-start flex-col w-full px-[30%] py-[15px];
+        @apply flex items-start flex-col w-full px-5 md:px-[20%] lg:px-[30%] py-[15px];
     }
 </style>
