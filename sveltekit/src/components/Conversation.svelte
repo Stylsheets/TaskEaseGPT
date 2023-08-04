@@ -2,20 +2,33 @@
     import type { IConversation } from "../types";
 
     export let conversation: IConversation;
+
+    function changeActiveConversation() {
+        console.log("CHANGE CONVERSATION");
+
+    }
+
+    function deleteConversation() {
+        console.log("DELETE CONVERSATION");
+    }
+
+    function editConversation() {
+        console.log("EDIT CONVERSATION");
+    }
 </script>
 
 
-<div class="rounded-xl min-h-[54px] px-2 py-2 items-center bg-accent w-full flex justify-between cursor-pointer transition-all grayscale-0 hover:grayscale">
-    <span class=" text-ellipsis text-base font-semibold whitespace-nowrap overflow-hidden">{conversation.title}</span>
+<button id="changeConversation" on:click|self={changeActiveConversation} class="rounded-xl min-h-[54px] px-2 py-2 items-center bg-accent w-full flex justify-between cursor-pointer transition-all hover:mix-blend-plus-lighter">
+    <button on:click|self={changeActiveConversation} class="text-ellipsis text-base font-semibold whitespace-nowrap overflow-hidden">{conversation.title}</button>
     <div class="flex">
-        <button on:click={() => console.log("EDIT BUTTON")} class="group">
+        <button on:click={editConversation} class="group">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                  class="w-5 h-5 transition-opacity opacity-10 group-hover:opacity-75">
                 <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z"/>
                 <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z"/>
             </svg>
         </button>
-        <button on:click={() => console.log("DELETE BUTTON")} class="group">
+        <button on:click={deleteConversation} class="group">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                  class="w-5 h-5 transition-opacity opacity-10 group-hover:opacity-75">
                 <path fill-rule="evenodd"
@@ -24,4 +37,4 @@
             </svg>
         </button>
     </div>
-</div>
+</button>
