@@ -15,7 +15,6 @@
     }
 </script>
 
-
 <div class="sidebar-container">
     <div class="top flex flex-col gap-5 items-center">
         <img alt="Logo" src="/logo.png">
