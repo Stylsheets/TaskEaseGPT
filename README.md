@@ -1,6 +1,6 @@
 # TaskEaseGPT
 
-### NOTE: This is a work-in-progress project!
+### NOTE: This is a work-in-progress project! (Development is private due to the attendance of a [hackathon project](https://lablab.ai/event/autogpt-arena-hacks))
 
 TaskEaseGPT is a user-friendly, AI-powered task management solution designed to prioritize effective work over excessive
 planning. Leveraging cutting-edge natural language processing and advanced task-management algorithms, TaskEaseGPT
